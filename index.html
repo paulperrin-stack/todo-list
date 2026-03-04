@@ -6,7 +6,110 @@
     <title>Todo List</title>
 </head>
 <body>
-    <div id="app"></div> <!-- My app render here-->
-    <script src="main.js"></script> <!-- Webpack's output bundle -->
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>Todo</h1>
+            </div>
+
+            <nav class="smart-views">
+                <ul>
+                    <li class="active" data-view="inbox">
+                        <span class="icon">📥</span> Inbox
+                        <span class="count">0</span>
+                    </li>
+                    <li data-view="today">
+                        <span class="icon">🌞</span> Today
+                        <span class="count">0</span>
+                    </li>
+                    <li data-view="upcoming">
+                        <span class="icon">📆</span> Upcoming
+                        <span class="count">0</span>
+                    </li>
+                    <li data-view="anytime">
+                        <span class="icon">♾️</span> Anytime
+                        <span class="count">0</span>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="projects-section">
+                <h2>Lists</h2>
+                <ul id="projects-list">
+                    <!-- JS dynamically add <li> here for each user project/list -->
+                    <!-- Example of what will be inserted: -->
+                    <!-- <li data-project-id="proj-1">Work <span class="count">4</span></li> -->
+                </ul>
+            </div>
+
+            <div class="sidebar-footer">
+                <button id="btn-new-list" class="btn-add">
+                    + New List
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content" id="main-content">
+            <header class="main-header">
+                <h2 id="current-view-title">Inbox</h2>
+
+                <!-- Sorting / filtering controls -->
+                <div class="view-controls">
+                    <select id="sort-select">
+                        <option value="dueDate">Due Date</option>
+                        <option value="priority">Priority</option>
+                        <option value="name">Name</option>
+                    </select>
+
+                    <select id="fitler-priority">
+                        <option value="all">All Priorities</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+
+                    <!-- Optional: list selector if inside a specific project -->
+                    <select id="filter-list" class="hidden">
+                        <option value="all">All Lists</option>
+                        <!-- JS adds project names here when useful-->
+                    </select>
+                </div>
+            </header>
+
+            <!-- Todo list container - this gets re-rendered most often -->
+            <section id="todos-container" class="todos-list">
+                <!-- JS renders todo items here -->
+                <!-- Example structure per todo: -->
+                <!--
+                <div class="todo-item priority-high" data-id="todo-123">
+                    <input type="checkbox">
+                    <span class="title">Buy groceries</span>
+                    <span class="due">Today</span>
+                    <span class="project-tag">Personal</span>
+                    <button class="btn-delete">×</button>
+                </div>
+                -->
+            </section>
+
+            <!-- SHOWN WHEN NO TASKS -->
+             <div id="empty-state" class="hidden">
+                <p>No tasks here yet.</p>
+                <p>Click "+ New Task" to get started.</p>
+             </div>
+
+             <!-- BOTTOM ACTIONS -->
+            <footer class="main-footer">
+                <div class="search-wrapper">
+                    <input type="search" id="search-input" placeholder="Search tasks..." />
+                </div>
+
+                <button id="btn-new-task" class="btn-primary">
+                    + New Task
+                </button>
+            </footer>
+        </main>
+    </div>
 </body>
 </html>
