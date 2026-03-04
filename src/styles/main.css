@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #f8f9fa;
+    color: #333;
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+/* MAIN APP WRAPPER - flex for sibebar + main */
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* -- SIDEBAR -- */
+.sidebar {
+    width: 260px;
+    background: #ffffff;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    padding: 20px 16px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.smart-views ul,
+.projects-section ul {
+    list-style: none;
+}
+
+.smart-views li,
+.projects-section li {
+    padding: 10px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #555;
+}
+
+.smart-views li:hover,
+.projects-section li:hover {
+    background: #f0f0f0;
+}
+
+.smart-views li.active,
+.projects-section li:hover {
+    background: #f0f0f0;
+}
+
+.smart-views li.active,
+.projects-section li.active {
+    background: #e6f0ff;
+    color: #0066ff;
+    font-weight: 500;
+}
+
+.count {
+    margin-left: auto;
+    font-size: 0.85rem;
+    color: #889;
+}
+
+.projects-section h2 {
+    padding: 20px 16px 8px;
+    font-size: 1rem;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding: 16px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.btn-add {
+    width: 100%;
+    padding: 10px;
+    background: #0066ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-add:hover {
+    background: #0055dd;
+}
+
+/* -- MAIN CONTENT -- */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.main-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.main-header h2 {
+    font-size: 1.6rem;
+}
+
+.view-controls {
+    display: flex;
+    gap: 12px;
+}
+
+.view-controls select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+}
+
+.todos-list {
+    padding: 16px 24px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Basic todo item look */
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: white;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.todo-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+.todo-item .title {
+    flex: 1;
+    font-size: 1.05rem;
+}
+
+.todo-item .btn-delete {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.todo-item .btn-delete:hover {
+    color: #e63946;
+}
+
+/* Priority colors */
+.priority-high   { border-left: 4px solid #e63946; }
+.priority-medium { border-left: 4px solid #f4a261; }
+.priority-low    { border-left: 4px solid #2a9d8f; }
+
+/* Empty state */
+#empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: #777;
+}
+
+/* Footer with search + new task */
+.main-footer {
+    padding: 16px 24px;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+}
+
+.search-wrapper input {
+    padding: 10px 16px;
+    width: 280px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.btn-primary {
+    padding: 10px 20px;
+    background: #0066ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background: #0055dd;
+}
+
+/* Small responsive adjustment */
+@media (max-width: 768px) {
+    .app-continer {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+    }
+}
