@@ -7,7 +7,7 @@ import { saveTodos, loadTodos, saveProjects, loadProjects} from "./storage.js";
 
 // Seed / hydrate
 
-function hydrateProjects(raw) {
+function hydrateProject(raw) {
     return raw.map((p) => new Project(p));
 }
 
