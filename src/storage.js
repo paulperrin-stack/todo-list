@@ -3,12 +3,12 @@
 
 const KEYS = {
     todos:      "todos",
-    project:    "projects",
+    projects:    "projects",
 };
 
 export function saveTodos(todos) {
     try {
-        localStorage.setItem(KEYS.todos, JSNO.stringify(todos));
+        localStorage.setItem(KEYS.todos, JSON.stringify(todos));
     } catch (e) {
         console.warn("Could not save todos:", e);
     }
