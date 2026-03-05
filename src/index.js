@@ -1,5 +1,4 @@
-console.log('Webpack is SUPER working!');
-import { format } from 'date-fns'; // Test date-fns
-console.log(format(new Date(), 'dd-MM-yyyy'));
+import { init } from "./ui.js";
+import "./styles/modal.css";
 
-import './styles/main.css';
+document.addEventListener("DOMContentLoaded", init);
