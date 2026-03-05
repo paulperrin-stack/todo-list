@@ -1,0 +1,198 @@
+/* ── Modal overlay ─────────────────────────────────────────────────────── */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: #fff;
+    border-radius: 10px;
+    width: 480px;
+    max-width: 95vw;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.modal--small {
+    width: 340px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px 14px;
+    border-bottom: 1px solid #e8e8e8;
+    }
+
+.modal-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #888;
+    line-height: 1;
+    padding: 0 4px;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+.modal-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.modal-body label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: #444;
+}
+
+.modal-body input[type="text"],
+.modal-body input[type="date"],
+.modal-body select,
+.modal-body textarea {
+    padding: 9px 12px;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.15s;
+}
+
+.modal-body input:focus,
+.modal-body select:focus,
+.modal-body textarea:focus {
+    outline: none;
+    border-color: #0066ff;
+}
+
+.modal-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.modal-footer {
+    padding: 14px 20px;
+    border-top: 1px solid #e8e8e8;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn-cancel {
+    padding: 9px 18px;
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #555;
+}
+
+.btn-cancel:hover {
+    background: #f5f5f5;
+}
+
+.required {
+    color: #e63946;
+}
+
+.input-error {
+    border-color: #e63946 !important;
+}
+
+/* ── Todo item additions ────────────────────────────────────────────────── */
+
+.todo-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.todo-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+}
+
+.due {
+    color: #666;
+}
+
+.due.overdue {
+    color: #e63946;
+    font-weight: 500;
+}
+
+.due.due-today {
+    color: #0066ff;
+    font-weight: 500;
+}
+
+.project-tag {
+    background: #eef2ff;
+    color: #3b5bdb;
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-size: 0.75rem;
+}
+
+.todo-item.completed .title {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.btn-expand {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: #aaa;
+    padding: 2px 4px;
+}
+
+.btn-expand:hover {
+    color: #0066ff;
+}
+
+.btn-delete-project {
+    background: none;
+    border: none;
+    color: #bbb;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-left: auto;
+    padding: 0 2px;
+    line-height: 1;
+}
+
+.btn-delete-project:hover {
+    color: #e63946;
+}
+
+.hidden {
+    display: none !important;
+}
