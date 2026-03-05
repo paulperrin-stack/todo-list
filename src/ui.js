@@ -11,7 +11,7 @@ import {
     deleteProject,
     countFor,
 } from "./store.js";
-import { openTodoModal, openListModal } from "./modal";
+import { openTodoModal, openListModal } from "./modal.js";
 
 // State
 
@@ -47,14 +47,14 @@ export function init() {
 
 function render() {
     renderSidebar();
-    renderTodo();
+    renderTodos();
 }
 
 // Sibebar
 
 const SMART_VIEWS = ["inbox", "today", "upcoming", "anytime"];
 
-function renderSibebar() {
+function renderSidebar() {
     $smartItems.forEach((li) => {
         const v = li.dataset.view;
         li.querySelector(".count").textContent = countFor(v, null);
@@ -119,7 +119,7 @@ function renderTodos() {
 
 function buildTodoEl(todo) {
     const div = document.createElement("div");
-    div.className = `todo-item priority-${todo.priority}${todo.completed ? "completed" : ""}`;
+    div.className = `todo-item priority-${todo.priority}${todo.completed ? " completed" : ""}`;
     div.dataset.id = todo.id;
 
     const proj = getProjects().find((p) => p.id === todo.projectId);
@@ -215,6 +215,16 @@ function bindStaticEvents() {
             },
         });
     });
+
+    // New List
+    $btnNewList.addEventListener("click", () => {
+        openListModal({
+            onSave: (name) => {
+                const project = addProject(name);
+                activateProject(project.id, project.name);
+            },
+        });
+    });
 }
 
 // Project delete
@@ -228,7 +238,7 @@ function handleDeleteProject(id, name) {
 
 // Formatting helpers
 
-function formateDate(dateStr) {
+function formatDate(dateStr) {
     if (!dateStr) return "";
     const [y, m, d] = dateStr.split("-").map(Number);
     const date = new Date(y, m - 1, d);
