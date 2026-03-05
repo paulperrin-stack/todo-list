@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack serve --open"
+    "start": "webpack serve --open",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/paulperrin-stack/todo-list/issues"
   },
-  "homepage": "https://github.com/paulperrin-stack/todo-list#readme",
+  "homepage": "https://github.com/paulperrin-stack/todo-list",
   "dependencies": {
     "date-fns": "^4.1.0",
     "webpack": "^5.105.3",
@@ -25,6 +26,12 @@
     "webpack-dev-server": "^5.2.3"
   },
   "devDependencies": {
-    "html-webpack-plugin": "^5.6.6"
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
+    "babel-loader": "^10.0.0",
+    "css-loader": "^7.1.4",
+    "gh-pages": "^6.3.0",
+    "html-webpack-plugin": "^5.6.6",
+    "style-loader": "^4.0.0"
   }
 }
