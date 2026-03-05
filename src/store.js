@@ -7,7 +7,7 @@ import { saveTodos, loadTodos, saveProjects, loadProjects} from "./storage.js";
 
 // Seed / hydrate
 
-function hydrateProject(raw) {
+function hydrateProjects(raw) {
     return raw.map((p) => new Project(p));
 }
 
@@ -36,7 +36,7 @@ function init() {
     const savedProjects = loadProjects();
     const savedTodos    = loadTodos();
 
-    if (savedProject && savedTodos) {
+    if (savedProjects && savedTodos) {
         _projects   = hydrateProject(savedProjects);
         _todos      = hydrateTodos(savedTodos);
     } else {
@@ -58,7 +58,7 @@ export function getProjects() {
     return [..._projects];
 }
 
-export function getProjects(id) {
+export function getProject(id) {
     return _projects.find((p) => p.id === id) ?? null;
 }
 
@@ -73,7 +73,7 @@ export function deleteProject(id) {
     if (id === "inbox") return false;
     _projects = _projects.filter((p) => p.id !== id);
     // move orphaned todos to inbox
-    _todos.forEach((t) => { if (t.projectId = id) t.projectId = "inbox"; });
+    _todos.forEach((t) => { if (t.projectId === id) t.projectId = "inbox"; });
     persist();
     return true;
 }
