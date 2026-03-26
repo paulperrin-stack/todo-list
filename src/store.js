@@ -78,7 +78,7 @@ export function deleteProject(id) {
     return true;
 }
 
-// Todo GRUD
+// Todo CRUD
 
 export function getTodos({ projectId, view, search, sortBy, filterPriorty } = {}) {
     let list = [..._todos];
@@ -107,8 +107,8 @@ export function getTodos({ projectId, view, search, sortBy, filterPriorty } = {}
     }
 
     // priority filter
-    if (filterPriorty && filterPriorty !== "all") {
-        list = list.filter((t) => t.priority === filterPriorty);
+    if (filterPriority && filterPriority !== "all") {
+        list = list.filter((t) => t.priority === filterPriority);
     }
 
     // sort
